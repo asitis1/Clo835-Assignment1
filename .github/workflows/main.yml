@@ -32,7 +32,6 @@ jobs:
         AWS_SESSION_TOKEN: ${{ secrets.AWS_SESSION_TOKEN }}
         AWS_REGION: us-east-1
 
-      #To build App image
     - name: App build, test, tag, and push image to Amazon ECR
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
@@ -49,8 +48,7 @@ jobs:
           echo "Pause for 10 seconds to let container start"
           sleep 10
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-    
-      #To build mysql image      
+          
     - name: MySQL DB build, test, tag, and push image to Amazon ECR
         env:
          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
