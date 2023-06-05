@@ -52,7 +52,7 @@ jobs:
     - name: MySQL DB build, test, tag, and push image to Amazon ECR
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        ECR_REPOSITORY: db_repo
+        ECR_REPOSITORY: ecr_mysql
         IMAGE_TAG: v2.0
       run: | 
         cd Application
